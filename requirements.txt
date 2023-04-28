@@ -1,0 +1,6 @@
+numpy
+matplotlib
+opencv-python
+albumentations
+people_segmentation 
+iglovikov_helper_functions
