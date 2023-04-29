@@ -5,7 +5,7 @@ Danh sách thành viên nhóm
 |---|---|
 |1. Trần Thành|20521924|
 |2. Trần Hoàng Anh|20521079|
-|3. Lê Hiếu||
+|3. Lê Thành Hiếu|19521498|
 |4. Phòng Lai Bảo Minh|20522217|
 |5. Nguyễn Ích Tài|18521362|
 
