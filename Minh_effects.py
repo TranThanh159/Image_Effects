@@ -47,18 +47,34 @@ class ImgProcess:
         return oldImg
     
  
-    def pencil(self):          #hiệu ứng vẽ bút chì
-        gray = self.gray
-        neg = 255 - gray
-        blur = cv2.GaussianBlur(neg, ksize=(21, 21), sigmaX=0, sigmaY=0)
-        blend = cv2.divide(gray, 255 - blur, scale=256)
+    # def pencil(self):          #hiệu ứng vẽ bút chì
+    #     gray = self.gray
+    #     neg = 255 - gray
+    #     blur = cv2.GaussianBlur(neg, ksize=(21, 21), sigmaX=0, sigmaY=0)
+    #     blend = cv2.divide(gray, 255 - blur, scale=256)
         
+    #     return blend
+
+    def pencil(self):
+        gray = self.gray   
+        neg = 255 - gray    
+        kernel = np.ones((21,21),np.float32)/(21*21)
+        blur = cv2.filter2D(neg,-1,kernel)
+        blend = np.zeros((self.h, self.w), np.uint8)
+        for i in range(self.h):
+            for j in range(self.w):
+                if (255 - blur[i, j]) == 0:
+                    blend[i, j] = gray[i, j]
+                else:
+                    blend[i, j] = np.uint8(gray[i, j] / (255 - blur[i, j]) * 255)
+    
         return blend
+
 
 if __name__ == '__main__':
     process_types = ['oil','old','pencil']   
     for process_type in process_types:
-        process = ImgProcess('/Users/phongminh/Effect_Image/Effect/PhongCanh/phongcanh3.jpeg')  #input ảnh vào rồi chạy
+        process = ImgProcess('/Users/phongminh/Effect_Image/Effect/Human_Image/human2.jpg')  #input ảnh vào rồi chạy
         processed_img = getattr(process, process_type)()  
         cv2.imshow(process_type, processed_img) 
         cv2.waitKey(delay=0) 
