@@ -74,7 +74,7 @@ class ImgProcess:
 if __name__ == '__main__':
     process_types = ['oil','old','pencil']   
     for process_type in process_types:
-        process = ImgProcess('/Users/phongminh/Effect_Image/Effect/Human_Image/human2.jpg')  #input ảnh vào rồi chạy
+        process = ImgProcess('base.jpg')  #input ảnh vào rồi chạy
         processed_img = getattr(process, process_type)()  
         cv2.imshow(process_type, processed_img) 
         cv2.waitKey(delay=0) 

@@ -1,6 +1,8 @@
-# import numpy as np
-# import cv2
-# import random
+import numpy as np
+import cv2
+import random
+
+#ảnh gốc base(bottom) layer, ảnh effect blend(top) layer
 
 #dissolve modes
 DISSOLVE_RANDOM_3TIMES = 1 
