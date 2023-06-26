@@ -1,6 +1,7 @@
 # Image Effects 
 
 Xây dựng hiệu ứng trên dáng người có sử dụng thư viện mediapipe hỗ trợ.
+
 Danh sách thành viên nhóm.
 |Thành viên nhóm|MSSV|
 |---|---|
